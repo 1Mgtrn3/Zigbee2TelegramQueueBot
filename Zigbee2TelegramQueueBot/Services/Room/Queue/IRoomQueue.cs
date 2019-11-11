@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Zigbee2TelegramQueueBot.Services.Room
+namespace Zigbee2TelegramQueueBot.Services.Room.Queue
 {
     public interface IRoomQueue
     {

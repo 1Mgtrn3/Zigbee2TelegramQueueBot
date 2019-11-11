@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Zigbee2TelegramQueueBot.Services.Room
+namespace Zigbee2TelegramQueueBot.Services.Room.Queue
 {
     public class QueueSlot
     {
