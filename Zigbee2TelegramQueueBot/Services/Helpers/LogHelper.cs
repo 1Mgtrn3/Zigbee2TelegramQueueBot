@@ -5,6 +5,8 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Zigbee2TelegramQueueBot.Services.Room;
+using Zigbee2TelegramQueueBot.Services.Users;
 
 namespace Zigbee2TelegramQueueBot.Services.Helpers
 {
