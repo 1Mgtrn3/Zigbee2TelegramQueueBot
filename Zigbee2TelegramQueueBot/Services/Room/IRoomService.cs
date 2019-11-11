@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Zigbee2TelegramQueueBot.Services.Room
 {
-    interface IRoomService
+   public interface IRoomService
     {
         bool IsBusy { get; set; }
 

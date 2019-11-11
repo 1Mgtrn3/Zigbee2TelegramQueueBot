@@ -5,10 +5,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Telegram.Bot.Types;
+using Microsoft.Extensions.Logging;
+using Zigbee2TelegramQueueBot.Configuration;
 using Zigbee2TelegramQueueBot.Enums;
 using Zigbee2TelegramQueueBot.Services;
+using Zigbee2TelegramQueueBot.Services.Bot;
+using Zigbee2TelegramQueueBot.Services.Helpers.Log;
+using Zigbee2TelegramQueueBot.Services.Helpers.UpdateServiceHelper;
+using Zigbee2TelegramQueueBot.Services.Menu;
 using Zigbee2TelegramQueueBot.Services.Notifications;
-
+using Zigbee2TelegramQueueBot.Services.Room;
+using Zigbee2TelegramQueueBot.Services.Users;
 
 namespace Zigbee2TelegramQueueBot.Services.Session
 {
@@ -16,7 +23,7 @@ namespace Zigbee2TelegramQueueBot.Services.Session
     {
         private readonly IUsersService _users;
         private readonly ILogger<SessionRouter> _logger;
-        private readonly IRoom _room;
+        private readonly IRoomService _room;
         private readonly IBotService _botService;
         private readonly IOptions<BotConfiguration> _config;
         //private readonly IUpdateService _updateService;
@@ -38,7 +45,7 @@ namespace Zigbee2TelegramQueueBot.Services.Session
         public SessionRouter(IUpdateHelper updateHelper,
                             IMenuLoader menuLoader,
                             ILogger<SessionRouter> logger,
-                            IRoom room,
+                            IRoomService room,
                             IUsersService users,
                             IBotService botService,
                             IOptions<BotConfiguration> config,
@@ -288,13 +295,13 @@ namespace Zigbee2TelegramQueueBot.Services.Session
                     //_menuLoader.SendText(chatId, NumberNotParsed);
                     try
                     {
-                        _logHelper.Log("JL54H6K45K645", $"NumberNotParsed is being sent to {chatId}", chatId);
+                        _logHelper.Log("JL54H6K45K645", $"NumberNotParsed is being sent to {chatId}", chatId,LogLevel.Warning);
                         //_menuLoader.SendNotification(chatId, NumberNotParsed);
                         _notificationRouter.RouteNotification(new NotificationItem(chatId, NotificationType.Send, NumberNotParsed));
                     }
                     catch (Exception ex)
                     {
-                        _logHelper.Log("fdsf87ds6f87ds", $"NumberNotParsed notifcation failed. ChatId = {chatId}.\r\nException: {ex.Message}", chatId);
+                        _logHelper.Log("fdsf87ds6f87ds", $"NumberNotParsed notifcation failed. ChatId = {chatId}.\r\nException: {ex.Message}", chatId,LogLevel.Error);
 
                     }
                 }
@@ -304,14 +311,14 @@ namespace Zigbee2TelegramQueueBot.Services.Session
                     //_menuLoader.SendText(chatId, NumberOverLimit);
                     try
                     {
-                        _logHelper.Log("HJGHGHJKFDS778", $"NumberOverLimit is being sent to {chatId}", chatId);
+                        _logHelper.Log("HJGHGHJKFDS778", $"NumberOverLimit is being sent to {chatId}", chatId,LogLevel.Warning);
                         //_menuLoader.SendNotification(chatId, NumberOverLimit);
                         _notificationRouter.RouteNotification(new NotificationItem(chatId, NotificationType.Send, NumberOverLimit));
                     }
                     catch (Exception ex)
                     {
 
-                        _logHelper.Log("dsfds2f3k4j432hj", $"NumberOverLimit notification failed. Chatid = {chatId}\r\nException: {ex.Message}", chatId);
+                        _logHelper.Log("dsfds2f3k4j432hj", $"NumberOverLimit notification failed. Chatid = {chatId}\r\nException: {ex.Message}", chatId,LogLevel.Error);
                     }
 
                 }
@@ -503,14 +510,14 @@ namespace Zigbee2TelegramQueueBot.Services.Session
             //_menuLoader.SendText(chatId, CommandNotRecognized);
             try
             {
-                _logHelper.Log("FDS7FDSFDS7FDS", $"CommandNotRecognized notification sent to {chatId}", chatId);
+                _logHelper.Log("FDS7FDSFDS7FDS", $"CommandNotRecognized notification sent to {chatId}", chatId,LogLevel.Warning);
                 //_menuLoader.SendNotification(chatId, CommandNotRecognized);
                 _notificationRouter.RouteNotification(new NotificationItem(chatId, NotificationType.Send, CommandNotRecognized));
             }
             catch (Exception ex)
             {
 
-                _logHelper.Log("fdsd3234fds4343322ds", $"Failed to send CommandNotRecognized notification to {chatId}", chatId);
+                _logHelper.Log("fdsd3234fds4343322ds", $"Failed to send CommandNotRecognized notification to {chatId}", chatId,LogLevel.Error);
             }
 
             _logger.LogError($"Command was not recognized. User state: {userState.ToString()} User input:|{GetCommand(update)}|");
