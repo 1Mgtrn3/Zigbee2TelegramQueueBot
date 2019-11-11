@@ -18,4 +18,19 @@
     <PackageReference Include="Telegram.Bot" Version="15.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Configuration\" />
+    <Folder Include="Enums\" />
+    <Folder Include="Services\Bot\" />
+    <Folder Include="Services\Helpers\" />
+    <Folder Include="Services\LockTracker\" />
+    <Folder Include="Services\Menu\" />
+    <Folder Include="Services\Session\" />
+    <Folder Include="Services\Users\" />
+    <Folder Include="Services\Update\" />
+    <Folder Include="Services\Room\" />
+    <Folder Include="Services\Notifications\" />
+    <Folder Include="SimpleMode\" />
+  </ItemGroup>
+
 </Project>
