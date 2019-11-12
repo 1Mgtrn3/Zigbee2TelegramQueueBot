@@ -10,6 +10,9 @@ using Zigbee2TelegramQueueBot.Services.Room;
 using Zigbee2TelegramQueueBot.Services.Session;
 using Zigbee2TelegramQueueBot.Services.Users;
 using Microsoft.Extensions.Logging;
+using Zigbee2TelegramQueueBot.Services.Bot;
+using Zigbee2TelegramQueueBot.Services.Menu;
+using Zigbee2TelegramQueueBot.Services.Notifications;
 
 namespace Zigbee2TelegramQueueBot.SimpleMode
 {
