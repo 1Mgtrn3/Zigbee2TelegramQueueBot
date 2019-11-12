@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Zigbee2TelegramQueueBot.Services.Bot;
 using Zigbee2TelegramQueueBot.Services.Menu;
 using Zigbee2TelegramQueueBot.Services.Notifications;
+using Zigbee2TelegramQueueBot.Services.LockTracker;
 
 namespace Zigbee2TelegramQueueBot.SimpleMode
 {
@@ -32,7 +33,7 @@ namespace Zigbee2TelegramQueueBot.SimpleMode
         public SimpleSessionRouter(IUpdateHelper updateHelper,
                             IMenuLoader menuLoader,
 
-                            IRoom room,
+                            IRoomService room,
                             IUsersService users,
                             IBotService botService,
 
@@ -196,7 +197,7 @@ namespace Zigbee2TelegramQueueBot.SimpleMode
                 _logHelper.Log("fdsd3234fds4s", $"Failed to send CommandNotRecognized notification to {chatId}", chatId, LogLevel.Error);
             }
 
-            _logHelper.Log("F98DSJ98HJ9HJG", $"Command was not recognized. User state: {userState.ToString()} User input:|{GetCommand(update)}|");
+            _logHelper.Log("F98DSJ98HJ9HJG", $"Command was not recognized. User state: {userState.ToString()} User input:|{GetCommand(update)}|", LogLevel.Warning);
 
         }
     }

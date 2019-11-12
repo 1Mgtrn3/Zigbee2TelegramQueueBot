@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Telegram.Bot.Types;
-using Microsoft.Extensions.Logging;
 using Zigbee2TelegramQueueBot.Configuration;
 using Zigbee2TelegramQueueBot.Enums;
 using Zigbee2TelegramQueueBot.Services;
@@ -16,6 +15,7 @@ using Zigbee2TelegramQueueBot.Services.Menu;
 using Zigbee2TelegramQueueBot.Services.Notifications;
 using Zigbee2TelegramQueueBot.Services.Room;
 using Zigbee2TelegramQueueBot.Services.Users;
+using Zigbee2TelegramQueueBot.Services.LockTracker;
 
 namespace Zigbee2TelegramQueueBot.Services.Session
 {

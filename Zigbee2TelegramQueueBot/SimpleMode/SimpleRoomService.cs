@@ -6,6 +6,8 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Zigbee2TelegramQueueBot.Services.Helpers.Log;
+using Zigbee2TelegramQueueBot.Services.LockTracker;
+using Zigbee2TelegramQueueBot.Services.Notifications;
 using Zigbee2TelegramQueueBot.Services.Room;
 using Zigbee2TelegramQueueBot.Services.Room.Queue;
 

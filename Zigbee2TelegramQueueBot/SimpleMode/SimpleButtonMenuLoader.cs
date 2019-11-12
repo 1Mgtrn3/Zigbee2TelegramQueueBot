@@ -13,6 +13,9 @@ using Zigbee2TelegramQueueBot.Services.Room.Queue;
 using Zigbee2TelegramQueueBot.Services.Users;
 using Microsoft.Extensions.Logging;
 using Telegram.Bot.Types.Enums;
+using Zigbee2TelegramQueueBot.Services.Bot;
+using Zigbee2TelegramQueueBot.Services.Notifications;
+using Zigbee2TelegramQueueBot.Services.LockTracker;
 
 namespace Zigbee2TelegramQueueBot.SimpleMode
 {

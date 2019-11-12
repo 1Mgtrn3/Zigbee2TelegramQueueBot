@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using Telegram.Bot;
 using System.Net;
 using MihaZupan;
+using Zigbee2TelegramQueueBot.Services.TelegramUpdateHandler.AutomatedNgrok;
 
 namespace Zigbee2TelegramQueueBot.Services.Bot
 {
