@@ -375,14 +375,14 @@ namespace Zigbee2TelegramQueueBot.Services.Session
                     {
                         try
                         {
-                            _logHelper.Log("FDSDS988DSFDS87", "Trying to send doorIsLockedInstruction");
+                            _logHelper.Log("FDSDS988DSFDS87", "Trying to send doorIsLockedInstruction", LogLevel.Information);
                             //_menuLoader.SendNotification(chatId, doorIsLockedInstruction);
                             _notificationRouter.RouteNotification(new NotificationItem(chatId, NotificationType.Send, doorIsLockedInstruction));
                         }
                         catch (Exception ex)
                         {
 
-                            _logHelper.Log("fdsfds7687fdsdsfds", $"DoorIsLockedInstruction notificatoin failed.\r\n{ex.Message}");
+                            _logHelper.Log("fdsfds7687fdsdsfds", $"DoorIsLockedInstruction notificatoin failed.\r\n{ex.Message}", LogLevel.Information);
                         }
                         _menuLoader.LoadStateMenu(chatId, UserState.InAddMoreTimeInTheRoom);
                     }

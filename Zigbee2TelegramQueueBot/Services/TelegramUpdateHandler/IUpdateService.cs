@@ -6,7 +6,7 @@ using Telegram.Bot.Types;
 
 namespace Zigbee2TelegramQueueBot.Services.TelegramUpdateHandler
 {
-    interface IUpdateService
+    public interface IUpdateService
     {
         Task UpdateHandle(Update update);
     }
