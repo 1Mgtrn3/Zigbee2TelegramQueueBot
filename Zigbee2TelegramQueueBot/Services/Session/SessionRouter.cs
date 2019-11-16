@@ -16,6 +16,7 @@ using Zigbee2TelegramQueueBot.Services.Notifications;
 using Zigbee2TelegramQueueBot.Services.Room;
 using Zigbee2TelegramQueueBot.Services.Users;
 using Zigbee2TelegramQueueBot.Services.LockTracker;
+using Zigbee2TelegramQueueBot.Services.Helpers.Localization;
 
 namespace Zigbee2TelegramQueueBot.Services.Session
 {
@@ -26,21 +27,22 @@ namespace Zigbee2TelegramQueueBot.Services.Session
         private readonly IRoomService _room;
         private readonly IBotService _botService;
         private readonly IOptions<BotConfiguration> _config;
-        //private readonly IUpdateService _updateService;
+        
         private readonly IUpdateHelper _updateHelper;
         private readonly ILockTrackerService _lockTrackerService;
         private readonly ILogHelper _logHelper;
         private readonly INotificationRouter _notificationRouter;
+        private readonly ILocalizationHelper _localizationHelper;
 
 
         private readonly IMenuLoader _menuLoader;
 
-        //private IEnumerable<IMenuLoader> _menuLoaders { get; set; }
+        
 
-        string CommandNotRecognized = "Command wasn't recognized. Please try again.";
-        string NumberOverLimit = "The value you've entered is over the limit. Please try again.";
-        string NumberNotParsed = "You have entered an invalid value. Please enter a number.";
-        string doorIsLockedInstruction = "Add yourself some time to cover both the person in the room and yourself.";
+        string CommandNotRecognized { get; set; }//= "Command wasn't recognized. Please try again.";
+        string NumberOverLimit { get; set; } //"The value you've entered is over the limit. Please try again.";
+        string NumberNotParsed { get; set; }//= "You have entered an invalid value. Please enter a number.";
+        string doorIsLockedInstruction { get; set; }//= "Add yourself some time to cover both the person in the room and yourself.";
 
         public SessionRouter(IUpdateHelper updateHelper,
                             IMenuLoader menuLoader,
@@ -51,33 +53,27 @@ namespace Zigbee2TelegramQueueBot.Services.Session
                             IOptions<BotConfiguration> config,
                             ILockTrackerService lockTrackerService,
                             ILogHelper logHelper,
-                            INotificationRouter notificationRouter)
+                            INotificationRouter notificationRouter,
+                            ILocalizationHelper localizationHelper)
         {
 
-            //_menuLoaders = menuLoaders;
+            
             _menuLoader = menuLoader;
             _config = config;
             _logHelper = logHelper;
-
             _updateHelper = updateHelper;
             _notificationRouter = notificationRouter;
-            //if (config.Value.MenuMode=="BUTTONS")
-            //{
-            //    _menuLoader = _menuLoaders.FirstOrDefault(l => l.MenuLoaderType == "ButtonMenuLoader");//menuLoader;
-            //}
-            //else
-            //{
-            //    _menuLoader = _menuLoaders.FirstOrDefault(l => l.MenuLoaderType == "TextMenuLoader");//menuLoader;
-            //}
-
-
-
+            _localizationHelper = localizationHelper;            
             _users = users;
             _logger = logger;
             _room = room;
             _botService = botService;
             _lockTrackerService = lockTrackerService;
 
+            CommandNotRecognized = _localizationHelper.GetLocalizedString(StringToLocalize.CommandNotRecognized);
+            NumberOverLimit = _localizationHelper.GetLocalizedString(StringToLocalize.NumberOverLimit);
+            NumberNotParsed = _localizationHelper.GetLocalizedString(StringToLocalize.NumberNotParsed);
+            doorIsLockedInstruction = _localizationHelper.GetLocalizedString(StringToLocalize.doorIsLockedInstruction);
         }
 
         private UserState GetStatus(Update update)

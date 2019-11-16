@@ -8,6 +8,7 @@ using Zigbee2TelegramQueueBot.Configuration;
 using Zigbee2TelegramQueueBot.Enums;
 using Zigbee2TelegramQueueBot.Services.Bot;
 using Zigbee2TelegramQueueBot.Services.Users;
+using Zigbee2TelegramQueueBot.Services.Helpers.Localization;
 
 namespace Zigbee2TelegramQueueBot.Services.Menu
 {
@@ -16,14 +17,19 @@ namespace Zigbee2TelegramQueueBot.Services.Menu
         private readonly IUsersService _users;
         private readonly IBotService _botService;
         private readonly IOptions<BotConfiguration> _config;
+        private readonly ILocalizationHelper _localizationHelper;
 
         public string MenuLoaderType => nameof(TextMenuLoader);
 
-        public TextMenuLoader(IBotService botService, IOptions<BotConfiguration> config, IUsersService users)
+        public TextMenuLoader(IBotService botService, 
+            IOptions<BotConfiguration> config, 
+            IUsersService users,
+            ILocalizationHelper localizationHelper)
         {
             _users = users;
             _botService = botService;
             _config = config;
+            _localizationHelper = localizationHelper;
         }
         public async Task LoadStateMenu(long chatId, UserState userState, bool removeNotification = true, [CallerMemberName] string caller = null)
         {
@@ -77,7 +83,9 @@ namespace Zigbee2TelegramQueueBot.Services.Menu
         public string LoadMainMenuText()
         {
 
-            string menuText = _config.Value.MenuTexts.MainMenuText + _config.Value.MenuCommands.MainMenuCommands;
+            string menuText = 
+                _localizationHelper.GetLocalizedString(StringToLocalize.MainMenuText) +
+                _localizationHelper.GetLocalizedString(StringToLocalize.MainMenuCommands);
 
             //text assembly
             return menuText;
@@ -87,7 +95,10 @@ namespace Zigbee2TelegramQueueBot.Services.Menu
         private string LoadStatusFreeMenuText()
         {
 
-            string menuText = _config.Value.MenuTexts.StatusFreeMenuText + _config.Value.MenuCommands.StatusFreeMenuCommands;
+            string menuText = 
+                _localizationHelper.GetLocalizedString(StringToLocalize.StatusFreeMenuText) +
+                _localizationHelper.GetLocalizedString(StringToLocalize.StatusFreeMenuCommands);
+            
             //text assembly
             return menuText;
 
@@ -95,7 +106,10 @@ namespace Zigbee2TelegramQueueBot.Services.Menu
 
         private string LoadStatusOccupiedMenuText()
         {
-            string menuText = _config.Value.MenuTexts.StatusOccupiedMenuText + _config.Value.MenuCommands.StatusOccupiedMenuCommands;
+            string menuText =
+                _localizationHelper.GetLocalizedString(StringToLocalize.StatusOccupiedMenuText) +
+                _localizationHelper.GetLocalizedString(StringToLocalize.StatusOccupiedMenuCommands);
+            
             //text assembly
             return menuText;
 
@@ -103,7 +117,10 @@ namespace Zigbee2TelegramQueueBot.Services.Menu
 
         private string LoadVisitDurationMenuText()
         {
-            string menuText = _config.Value.MenuTexts.VisitDurationMenuText + _config.Value.MenuCommands.VisitDurationMenuCommands;
+            string menuText =
+                _localizationHelper.GetLocalizedString(StringToLocalize.VisitDurationMenuText) +
+                _localizationHelper.GetLocalizedString(StringToLocalize.VisitDurationMenuCommands);
+            
             //text assembly
             return menuText;
 
@@ -111,7 +128,9 @@ namespace Zigbee2TelegramQueueBot.Services.Menu
 
         private string LoadVisitDurationCustomMenuText()
         {
-            string menuText = _config.Value.MenuTexts.VisitDurationCustomMenuText + _config.Value.MenuCommands.VisitDurationCustomMenuCommands;
+            string menuText =
+                _localizationHelper.GetLocalizedString(StringToLocalize.VisitDurationCustomMenuText);
+               
             //text assembly
             return menuText;
 
@@ -119,7 +138,11 @@ namespace Zigbee2TelegramQueueBot.Services.Menu
 
         private string LoadQueueMenuText()
         {
-            string menuText = _config.Value.MenuTexts.QueueMenuText + _config.Value.MenuCommands.QueueMenuCommands;
+            string menuText =
+                _localizationHelper.GetLocalizedString(StringToLocalize.QueueMenuText) +
+                _localizationHelper.GetLocalizedString(StringToLocalize.QueueMenuCommands);
+
+            //_config.Value.MenuTexts.QueueMenuText + _config.Value.MenuCommands.QueueMenuCommands;
             //text assembly
             return menuText;
 
@@ -127,7 +150,10 @@ namespace Zigbee2TelegramQueueBot.Services.Menu
 
         private string LoadRoomMenuText()
         {
-            string menuText = _config.Value.MenuTexts.RoomMenuText + _config.Value.MenuCommands.RoomMenuCommands;
+            string menuText =
+                _localizationHelper.GetLocalizedString(StringToLocalize.RoomMenuText) +
+                _localizationHelper.GetLocalizedString(StringToLocalize.RoomMenuCommands);
+            
             //text assembly
             return menuText;
 
@@ -135,28 +161,41 @@ namespace Zigbee2TelegramQueueBot.Services.Menu
 
         private string LoadAddMoreTimeInTheRoomMenuText()
         {
-            string menuText = _config.Value.MenuTexts.AddMoreTimeInTheRoomMenuText + _config.Value.MenuCommands.AddMoreTimeInTheRoomMenuCommands;
+            string menuText =
+                _localizationHelper.GetLocalizedString(StringToLocalize.AddMoreTimeInTheQueueMenuText) +
+                _localizationHelper.GetLocalizedString(StringToLocalize.AddMoreTimeInTheRoomMenuCommands);
+            
             //text assembly
             return menuText;
         }
 
         private string LoadAddMoreTimeInTheQueueMenuText()
         {
-            string menuText = _config.Value.MenuTexts.AddMoreTimeInTheQueueMenuText + _config.Value.MenuCommands.AddMoreTimeInTheQueueMenuCommands;
+            string menuText =
+                _localizationHelper.GetLocalizedString(StringToLocalize.AddMoreTimeInTheQueueMenuText) +
+                _localizationHelper.GetLocalizedString(StringToLocalize.AddMoreTimeInTheQueueMenuCommands);
+            
             //text assembly
             return menuText;
         }
 
         private string LoadInBetweenQueueAndRoomMenuText()
         {
-            string menuText = _config.Value.MenuTexts.InBetweenQueueAndRoomMenuText + _config.Value.MenuCommands.InBetweenQueueAndRoomMenuCommands;
+            string menuText =
+                _localizationHelper.GetLocalizedString(StringToLocalize.InBetweenQueueAndRoomMenuText) +
+                _localizationHelper.GetLocalizedString(StringToLocalize.InBetweenQueueAndRoomMenuCommands);
+            
             //text assembly
             return menuText;
         }
 
         private string LoadDoorIsLockedMenuText()
         {
-            string menuText = _config.Value.MenuTexts.DoorIsLockedMenuText + _config.Value.MenuCommands.DoorIsLockedMenuCommands;
+            string menuText =
+               _localizationHelper.GetLocalizedString(StringToLocalize.DoorIsLockedMenuText) +
+                _localizationHelper.GetLocalizedString(StringToLocalize.DoorIsLockedMenuCommands);
+
+            
             //text assembly
             return menuText;
         }

@@ -10,13 +10,14 @@ namespace Zigbee2TelegramQueueBot.Configuration
     {
         public BotConfiguration()
         {
-            MenuTexts = new MenuTexts();
-            MenuCommands = new MenuCommands();
-            SimpleMenuTexts = new SimpleMenuTexts();
+            //MenuTexts = new MenuTexts();
+            //MenuCommands = new MenuCommands();
+            //SimpleMenuTexts = new SimpleMenuTexts();
             SOCKS5Proxy = new SOCKS5Proxy();
             HTTPProxy = new HTTPProxy();
 
         }
+        public Language Language { get; set; }
         public bool SimpleMode { get; set; }
         public string BotToken { get; set; }
         public ProxyMode ProxyMode { get; set; }        
@@ -25,8 +26,8 @@ namespace Zigbee2TelegramQueueBot.Configuration
 
         public string MenuMode { get; set; }
 
-        public MenuTexts MenuTexts { get; set; }
-        public SimpleMenuTexts SimpleMenuTexts { get; set; }
+        //public MenuTexts MenuTexts { get; set; }
+        //public SimpleMenuTexts SimpleMenuTexts { get; set; }
 
         public MenuCommands MenuCommands { get; set; }
 

@@ -10,6 +10,8 @@ using Zigbee2TelegramQueueBot.Services.LockTracker;
 using Zigbee2TelegramQueueBot.Services.Notifications;
 using Zigbee2TelegramQueueBot.Services.Room;
 using Zigbee2TelegramQueueBot.Services.Room.Queue;
+using Zigbee2TelegramQueueBot.Services.Helpers.Localization;
+using Zigbee2TelegramQueueBot.Enums;
 
 namespace Zigbee2TelegramQueueBot.SimpleMode
 {
@@ -20,12 +22,14 @@ namespace Zigbee2TelegramQueueBot.SimpleMode
         private readonly IRoomQueue _roomQueue;
         private readonly ILogHelper _LogHelper;
         private readonly INotificationRouter _notificationRouter;
-        
+        private readonly ILocalizationHelper _localizationHelper;
+
         public SimpleRoom(
             ILockTrackerService lockTrackerService,
             IRoomQueue roomQueue,
             ILogHelper LogHelper,
-            INotificationRouter notificationRouter)
+            INotificationRouter notificationRouter,
+            ILocalizationHelper localizationHelper)
         {
             _roomQueue = roomQueue;
             SubscribedUsers = _roomQueue.QueueList;
@@ -35,6 +39,7 @@ namespace Zigbee2TelegramQueueBot.SimpleMode
 
             _LogHelper = LogHelper;
             _notificationRouter = notificationRouter;
+            _localizationHelper = localizationHelper;
             _lockTrackerService.PropertyChanged += _lockTrackerService_PropertyChanged;
 
         }
@@ -79,7 +84,9 @@ namespace Zigbee2TelegramQueueBot.SimpleMode
                     {
                         if (user.ChatId != 0)
                         {
-                            _notificationRouter.RouteNotification(new NotificationItem(user.ChatId, Enums.NotificationType.Send, $"The room is free. Subscribed (including you): {SubscribedUsers.Count}"));
+                            string notificationText = _localizationHelper.GetLocalizedString(StringToLocalize.SimpleRoomIsFree)
+                                .Replace("[SUBCOUNT]", SubscribedUsers.Count.ToString());
+                            _notificationRouter.RouteNotification(new NotificationItem(user.ChatId, Enums.NotificationType.Send, notificationText));
                         }
 
                     }
@@ -92,6 +99,8 @@ namespace Zigbee2TelegramQueueBot.SimpleMode
                     {
                         if (user.ChatId != 0)
                         {
+                            string notificationText = _localizationHelper.GetLocalizedString(StringToLocalize.SimpleRoomIsOccupied)
+                                .Replace("[SUBCOUNT]", (SubscribedUsers.Count -1).ToString());
                             _notificationRouter.RouteNotification(new NotificationItem(user.ChatId, Enums.NotificationType.Send, $"The room is occupied. Subscribed (including you): {SubscribedUsers.Count - 1}"));
                         }
 

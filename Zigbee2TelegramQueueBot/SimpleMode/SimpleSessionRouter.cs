@@ -14,6 +14,7 @@ using Zigbee2TelegramQueueBot.Services.Bot;
 using Zigbee2TelegramQueueBot.Services.Menu;
 using Zigbee2TelegramQueueBot.Services.Notifications;
 using Zigbee2TelegramQueueBot.Services.LockTracker;
+using Zigbee2TelegramQueueBot.Services.Helpers.Localization;
 
 namespace Zigbee2TelegramQueueBot.SimpleMode
 {
@@ -28,8 +29,9 @@ namespace Zigbee2TelegramQueueBot.SimpleMode
         private readonly ILogHelper _logHelper;
         private readonly INotificationRouter _notificationRouter;
         private readonly IMenuLoader _menuLoader;
+        private readonly ILocalizationHelper _localizationHelper;
 
-        string CommandNotRecognized = "Command wasn't recognized. Please try again.";
+        string CommandNotRecognized { get; set; }//"Command wasn't recognized. Please try again.";
         public SimpleSessionRouter(IUpdateHelper updateHelper,
                             IMenuLoader menuLoader,
 
@@ -39,7 +41,8 @@ namespace Zigbee2TelegramQueueBot.SimpleMode
 
                             ILockTrackerService lockTrackerService,
                             ILogHelper logHelper,
-                            INotificationRouter notificationRouter)
+                            INotificationRouter notificationRouter,
+                            ILocalizationHelper localizationHelper)
         {
 
             
@@ -55,6 +58,8 @@ namespace Zigbee2TelegramQueueBot.SimpleMode
             _room = room;
             _botService = botService;
             _lockTrackerService = lockTrackerService;
+            _localizationHelper = localizationHelper;
+            CommandNotRecognized = _localizationHelper.GetLocalizedString(StringToLocalize.CommandNotRecognized);
 
         }
 

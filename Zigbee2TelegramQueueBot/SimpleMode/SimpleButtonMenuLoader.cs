@@ -16,6 +16,7 @@ using Telegram.Bot.Types.Enums;
 using Zigbee2TelegramQueueBot.Services.Bot;
 using Zigbee2TelegramQueueBot.Services.Notifications;
 using Zigbee2TelegramQueueBot.Services.LockTracker;
+using Zigbee2TelegramQueueBot.Services.Helpers.Localization;
 
 namespace Zigbee2TelegramQueueBot.SimpleMode
 {
@@ -29,6 +30,7 @@ namespace Zigbee2TelegramQueueBot.SimpleMode
         //private readonly IRoom _room;
         private readonly ILogHelper _logHelper;
         private readonly INotificationRouter _notificationRouter;
+        private readonly ILocalizationHelper _localizationHelper;
         public string MenuLoaderType => nameof(SimpleButtonMenuLoader);
 
         public SimpleButtonMenuLoader(IBotService botService,
@@ -37,7 +39,8 @@ namespace Zigbee2TelegramQueueBot.SimpleMode
             ILockTrackerService lockTrackerService,
             IRoomQueue roomQueue,
             ILogHelper logHelper,
-            INotificationRouter notificationRouter
+            INotificationRouter notificationRouter,
+            ILocalizationHelper localizationHelper
             )
         {
             _botService = botService;
@@ -47,6 +50,7 @@ namespace Zigbee2TelegramQueueBot.SimpleMode
             _roomQueue = roomQueue;
             _logHelper = logHelper;            
             _notificationRouter = notificationRouter;
+            _localizationHelper = localizationHelper;
 
         }
         public async Task LoadStateMenu(long chatId, UserState userState, bool removeNotification = true, [CallerMemberName] string caller = null)
@@ -122,7 +126,7 @@ namespace Zigbee2TelegramQueueBot.SimpleMode
 
         private string LoadSimpleSubscribedMenuText()
         {
-            string menuText = _config.Value.SimpleMenuTexts.SimpleSubscribedMenuText;//.MenuTexts.VisitDurationMenuText;
+            string menuText = _localizationHelper.GetLocalizedString(StringToLocalize.SimpleSubscribedMenuText);//_config.Value.SimpleMenuTexts.SimpleSubscribedMenuText;//.MenuTexts.VisitDurationMenuText;
             //text assembly
             return menuText;
         }
@@ -141,7 +145,7 @@ namespace Zigbee2TelegramQueueBot.SimpleMode
 
         private string LoadSimpleStatusMenuText()
         {
-            string menuText = _config.Value.SimpleMenuTexts.SimpleStatusMenuText;//.MenuTexts.VisitDurationMenuText;
+            string menuText = _localizationHelper.GetLocalizedString(StringToLocalize.SimpleStatusMenuText);//_config.Value.SimpleMenuTexts.SimpleStatusMenuText;//.MenuTexts.VisitDurationMenuText;
             //text assembly
             string roomStatusString;// = _roomQueue.QueueList[0].?"занята":"свободна";
             if (_roomQueue.QueueList.SingleOrDefault(s => s.ChatId == 0) == default(QueueSlot))
@@ -224,7 +228,7 @@ namespace Zigbee2TelegramQueueBot.SimpleMode
 
         private string LoadSimpleMainMenuText()
         {
-            string menuText = _config.Value.SimpleMenuTexts.SimpleMainMenuText;
+            string menuText = _localizationHelper.GetLocalizedString(StringToLocalize.SimpleMainMenuText);//_config.Value.SimpleMenuTexts.SimpleMainMenuText;
             //text assembly
             return menuText;
         }

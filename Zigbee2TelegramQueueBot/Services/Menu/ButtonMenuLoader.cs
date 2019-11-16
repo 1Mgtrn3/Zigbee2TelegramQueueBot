@@ -15,6 +15,7 @@ using Zigbee2TelegramQueueBot.Services.Room.Queue;
 using Zigbee2TelegramQueueBot.Services.Users;
 using Microsoft.Extensions.Logging;
 using Telegram.Bot.Types.Enums;
+using Zigbee2TelegramQueueBot.Services.Helpers.Localization;
 
 namespace Zigbee2TelegramQueueBot.Services.Menu
 {
@@ -27,6 +28,7 @@ namespace Zigbee2TelegramQueueBot.Services.Menu
         private readonly IRoomQueue _roomQueue;
         private readonly ILogHelper _logHelper;
         private readonly INotificationRouter _notificationRouter;
+        private readonly ILocalizationHelper _localizationHelper;
         public string MenuLoaderType => nameof(ButtonMenuLoader);
         public ButtonMenuLoader(IBotService botService,
             IOptions<BotConfiguration> config,
@@ -34,7 +36,8 @@ namespace Zigbee2TelegramQueueBot.Services.Menu
             ILockTrackerService lockTrackerService,
             IRoomQueue roomQueue,
             ILogHelper logHelper,
-            INotificationRouter notificationRouter)
+            INotificationRouter notificationRouter,
+            ILocalizationHelper localizationHelper)
         {
             _botService = botService;
             _config = config;
@@ -43,6 +46,7 @@ namespace Zigbee2TelegramQueueBot.Services.Menu
             _roomQueue = roomQueue;
             _logHelper = logHelper;
             _notificationRouter = notificationRouter;
+            _localizationHelper = localizationHelper;
 
         }
 
@@ -380,7 +384,7 @@ namespace Zigbee2TelegramQueueBot.Services.Menu
         public string LoadMainMenuText()
         {
 
-            string menuText = _config.Value.MenuTexts.MainMenuText;
+            string menuText = _localizationHelper.GetLocalizedString(StringToLocalize.MainMenuText);//_config.Value.MenuTexts.MainMenuText;
 
             //text assembly
             return menuText;
@@ -390,7 +394,7 @@ namespace Zigbee2TelegramQueueBot.Services.Menu
         private string LoadStatusFreeMenuText()
         {
 
-            string menuText = _config.Value.MenuTexts.StatusFreeMenuText;
+            string menuText = _localizationHelper.GetLocalizedString(StringToLocalize.StatusFreeMenuText);//_config.Value.MenuTexts.StatusFreeMenuText;
             //text assembly
             return menuText;
 
@@ -398,7 +402,7 @@ namespace Zigbee2TelegramQueueBot.Services.Menu
 
         private string LoadStatusOccupiedMenuText()
         {
-            string menuText = _config.Value.MenuTexts.StatusOccupiedMenuText
+            string menuText = _localizationHelper.GetLocalizedString(StringToLocalize.StatusOccupiedMenuText)//_config.Value.MenuTexts.StatusOccupiedMenuText
                 .Replace("[QUEUESIZE]", _roomQueue.QueueList.Count().ToString())
                 .Replace("[WAITMINUTES]", _roomQueue.GetOverallWaitTimeMinutes().ToString());
 
@@ -410,7 +414,7 @@ namespace Zigbee2TelegramQueueBot.Services.Menu
 
         private string LoadVisitDurationMenuText()
         {
-            string menuText = _config.Value.MenuTexts.VisitDurationMenuText;
+            string menuText = _localizationHelper.GetLocalizedString(StringToLocalize.VisitDurationMenuText);//_config.Value.MenuTexts.VisitDurationMenuText;
             //text assembly
             return menuText;
 
@@ -418,7 +422,7 @@ namespace Zigbee2TelegramQueueBot.Services.Menu
 
         private string LoadVisitDurationCustomMenuText()
         {
-            string menuText = _config.Value.MenuTexts.VisitDurationCustomMenuText;
+            string menuText = _localizationHelper.GetLocalizedString(StringToLocalize.VisitDurationCustomMenuText);//_config.Value.MenuTexts.VisitDurationCustomMenuText;
             //text assembly
             return menuText;
 
@@ -426,7 +430,7 @@ namespace Zigbee2TelegramQueueBot.Services.Menu
 
         private string LoadQueueMenuText()
         {
-            string menuText = _config.Value.MenuTexts.QueueMenuText;
+            string menuText = _localizationHelper.GetLocalizedString(StringToLocalize.QueueMenuText);//_config.Value.MenuTexts.QueueMenuText;
             //text assembly
             return menuText;
 
@@ -434,7 +438,7 @@ namespace Zigbee2TelegramQueueBot.Services.Menu
 
         private string LoadRoomMenuText()
         {
-            string menuText = _config.Value.MenuTexts.RoomMenuText;
+            string menuText = _localizationHelper.GetLocalizedString(StringToLocalize.RoomMenuText);//_config.Value.MenuTexts.RoomMenuText;
             //text assembly
             return menuText;
 
@@ -442,28 +446,28 @@ namespace Zigbee2TelegramQueueBot.Services.Menu
 
         private string LoadAddMoreTimeInTheRoomMenuText()
         {
-            string menuText = _config.Value.MenuTexts.AddMoreTimeInTheRoomMenuText;
+            string menuText = _localizationHelper.GetLocalizedString(StringToLocalize.AddMoreTimeInTheRoomMenuText);//_config.Value.MenuTexts.AddMoreTimeInTheRoomMenuText;
             //text assembly
             return menuText;
         }
 
         private string LoadAddMoreTimeInTheQueueMenuText()
         {
-            string menuText = _config.Value.MenuTexts.AddMoreTimeInTheQueueMenuText;
+            string menuText = _localizationHelper.GetLocalizedString(StringToLocalize.AddMoreTimeInTheQueueMenuText);//_config.Value.MenuTexts.AddMoreTimeInTheQueueMenuText;
             //text assembly
             return menuText;
         }
 
         private string LoadInBetweenQueueAndRoomMenuText()
         {
-            string menuText = _config.Value.MenuTexts.InBetweenQueueAndRoomMenuText;
+            string menuText = _localizationHelper.GetLocalizedString(StringToLocalize.InBetweenQueueAndRoomMenuText);//_config.Value.MenuTexts.InBetweenQueueAndRoomMenuText;
             //text assembly
             return menuText;
         }
 
         private string LoadDoorIsLockedMenuText()
         {
-            string menuText = _config.Value.MenuTexts.DoorIsLockedMenuText;
+            string menuText = _localizationHelper.GetLocalizedString(StringToLocalize.DoorIsLockedMenuText);//_config.Value.MenuTexts.DoorIsLockedMenuText;
             //text assembly
             return menuText;
         }

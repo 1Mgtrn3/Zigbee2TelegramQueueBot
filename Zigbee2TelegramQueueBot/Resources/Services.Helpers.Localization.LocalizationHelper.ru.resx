@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddMoreTimeInTheQueueMenuCommands" xml:space="preserve">
+    <value>\r\nДоступные команды:\r\n/cancel</value>
+  </data>
+  <data name="AddMoreTimeInTheQueueMenuText" xml:space="preserve">
+    <value>Введите сколько вам нужно дополнительного времени и отправьте сообщение</value>
+  </data>
+  <data name="AddMoreTimeInTheRoomMenuCommands" xml:space="preserve">
+    <value>\r\nДоступные команды:\r\n/cancel</value>
+  </data>
+  <data name="AddMoreTimeInTheRoomMenuText" xml:space="preserve">
+    <value>Введите сколько вам нужно дополнительного времени и отправьте сообщение</value>
+  </data>
+  <data name="CommandNotRecognized" xml:space="preserve">
+    <value>Команда не распознана, повторите снова</value>
+  </data>
+  <data name="doorIsLockedInstruction" xml:space="preserve">
+    <value>Добавьте себе времени, чтобы хватило и вам и человеку внутри.</value>
+  </data>
+  <data name="DoorIsLockedMenuCommands" xml:space="preserve">
+    <value>\r\nДоступные команды:\r\n</value>
+  </data>
+  <data name="EnqueueAlert" xml:space="preserve">
+    <value>Вы добавлены в очередь. Ваша порядковый номер в очереди - [QUEUEPOS], время ожидания [WAITTIME] минут.</value>
+  </data>
+  <data name="InactivityDequeueAlert" xml:space="preserve">
+    <value>Вы были исключены из очереди. Попробуйте когда у вас будет время.</value>
+  </data>
+  <data name="InBetweenQueueAndRoomMenuCommands" xml:space="preserve">
+    <value>\r\nДоступные команды\r\n/startsession\r\n/skip\r\n/dequeue\r\n/doorislocked</value>
+  </data>
+  <data name="InBetweenQueueAndRoomMenuText" xml:space="preserve">
+    <value>Дверь открылась, сейчас ваша очередь идти.</value>
+  </data>
+  <data name="MainMenuCommands" xml:space="preserve">
+    <value>\r\nДоступные команды:\r\n/status\r\n/enqueue</value>
+  </data>
+  <data name="MainMenuText" xml:space="preserve">
+    <value>Главное меню. Узнайте статус или займите очередь.</value>
+  </data>
+  <data name="NumberNotParsed" xml:space="preserve">
+    <value>Вы задали неверное значение. Пожалуйста введите число</value>
+  </data>
+  <data name="NumberOverLimit" xml:space="preserve">
+    <value>Вы задали значение больше лимита. Пожалуйста повторите ввод</value>
+  </data>
+  <data name="OrderChangeAlert" xml:space="preserve">
+    <value>Новое место в очереди: [QUEUEPOS]. Новое время ожидания [WAITTIME] минут</value>
+  </data>
+  <data name="QueueMenuCommands" xml:space="preserve">
+    <value>\r\nДоступные команды:\r\n/cancelenqueue\r\n/skip\r\n/needmoretime</value>
+  </data>
+  <data name="QueueMenuText" xml:space="preserve">
+    <value>Вы в очереди. Вы можете выйти из очереди либо пропустить человека после вас вперед. Если после вас никого нет, то вместо пропуска вы выйдете из очереди.</value>
+  </data>
+  <data name="RoomMenuCommands" xml:space="preserve">
+    <value>\r\nДоступные команды:\r\n/free\r\n/needmoretime\r\n/doorislocked</value>
+  </data>
+  <data name="RoomMenuText" xml:space="preserve">
+    <value>Вы заняли комнату. Если комнату заняли не вы, нажмите на кнопку ДВЕРЬ ЗАКРЫТА. Если вам нужно больше времени чем вы указали и вы хотите уведомить об этом остальную очередь нажмите НУЖНО БОЛЬШЕ ВРЕМЕНИ</value>
+  </data>
+  <data name="SimpleMainMenuText" xml:space="preserve">
+    <value>Главное меню. Узнайте статус или подпишитесь на статусы.</value>
+  </data>
+  <data name="SimpleRoomIsFree" xml:space="preserve">
+    <value>The room is free. Subscribed (including you): [SUBCOUNT]</value>
+  </data>
+  <data name="SimpleRoomIsOccupied" xml:space="preserve">
+    <value>The room is occupied. Subscribed (including you): [SUBCOUNT]</value>
+  </data>
+  <data name="SimpleStatusMenuText" xml:space="preserve">
+    <value>Комната [ROOMSTATUS]. Подписано на уведомления: [SUBCOUNT] человек</value>
+  </data>
+  <data name="SimpleSubscribedMenuText" xml:space="preserve">
+    <value>Вы подписаны на уведомления. Нажмите ВЫХОД чтобы отписаться</value>
+  </data>
+  <data name="SkipFirstAlert" xml:space="preserve">
+    <value>Ваша новая позиция в очереди [QUEUEPOS]. Ожидаемое время [WAITTIME] минут.</value>
+  </data>
+  <data name="SkipOtherAlert" xml:space="preserve">
+    <value>Ваша новая позиция в очереди [QUEUEPOS]. Ожидаемое время [WAITTIME] минут.</value>
+  </data>
+  <data name="StatusFreeMenuCommands" xml:space="preserve">
+    <value>\r\nДоступные команды:\r\n/occupy\r\n/exit</value>
+  </data>
+  <data name="StatusFreeMenuText" xml:space="preserve">
+    <value>Комната свободна.</value>
+  </data>
+  <data name="StatusOccupiedMenuCommands" xml:space="preserve">
+    <value>\r\nДоступные команды:\r\n/enqueue\r\n/exit</value>
+  </data>
+  <data name="StatusOccupiedMenuText" xml:space="preserve">
+    <value>Комната занята. В очереди [QUEUESIZE] человек, время ожидания на данный момент примерно [WAITMINUTES]</value>
+  </data>
+  <data name="TimeChangeAlert" xml:space="preserve">
+    <value>Approximate time to wait changed to [WAITTIME] minutes.</value>
+  </data>
+  <data name="VisitDurationCustomMenuCommands" xml:space="preserve">
+    <value>\r\nДоступные команды:\r\n/exit</value>
+  </data>
+  <data name="VisitDurationCustomMenuText" xml:space="preserve">
+    <value>Введите количество минут и отправьте сообщение</value>
+  </data>
+  <data name="VisitDurationMenuCommands" xml:space="preserve">
+    <value>\r\nДоступные команды:\r\n/5minutes\r\n/10minutes\r\n/15minutes\r\n/custom\r\n/exit</value>
+  </data>
+  <data name="VisitDurationMenuText" xml:space="preserve">
+    <value>Выберете примерное время нахождения в комнате. Это поможет остальным понять сколько им ждать. Вы НЕ ограничены этим временем.</value>
+  </data>
+</root>
