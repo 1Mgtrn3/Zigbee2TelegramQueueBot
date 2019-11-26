@@ -186,6 +186,12 @@
   <data name="SimpleRoomIsOccupied" xml:space="preserve">
     <value>The room is occupied. Subscribed (including you): [SUBCOUNT]</value>
   </data>
+  <data name="SimpleRoomStatusFreeText" xml:space="preserve">
+    <value>free</value>
+  </data>
+  <data name="SimpleRoomStatusOccupiedText" xml:space="preserve">
+    <value>occupied</value>
+  </data>
   <data name="SimpleStatusMenuText" xml:space="preserve">
     <value>The room is [ROOMSTATUS]. People subscribed: [SUBCOUNT]</value>
   </data>

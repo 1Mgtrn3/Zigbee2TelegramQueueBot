@@ -44,7 +44,10 @@ namespace Zigbee2TelegramQueueBot.Enums
         AddMoreTimeInTheRoomMenuCommands,
         AddMoreTimeInTheQueueMenuCommands,
         InBetweenQueueAndRoomMenuCommands,
-        DoorIsLockedMenuCommands
+        DoorIsLockedMenuCommands,
+
+        SimpleRoomStatusFreeText,
+        SimpleRoomStatusOccupiedText
 
     }
 }

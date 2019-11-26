@@ -150,11 +150,11 @@ namespace Zigbee2TelegramQueueBot.SimpleMode
             string roomStatusString;// = _roomQueue.QueueList[0].?"занята":"свободна";
             if (_roomQueue.QueueList.SingleOrDefault(s => s.ChatId == 0) == default(QueueSlot))
             {
-                roomStatusString = "free";
+                roomStatusString = _localizationHelper.GetLocalizedString(StringToLocalize.SimpleRoomStatusFreeText);
             }
             else
             {
-                roomStatusString = "occupied";
+                roomStatusString = _localizationHelper.GetLocalizedString(StringToLocalize.SimpleRoomStatusOccupiedText);
 
             }
 
